@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do-While Loop</title>
+</head>
+<body>
+
+<script>
+    // JavaScript code
+    let myNum;
+
+    do {
+        myNum = prompt("Enter a number between 5 and 20:");
+        myNum = parseInt(myNum);
+
+        if (isNaN(myNum) || myNum < 5 || myNum > 20) {
+            alert("Invalid input. Please enter a number between 5 and 20.");
+        }
+    } while (isNaN(myNum) || myNum < 5 || myNum > 20);
+
+    let counter = 1;
+
+    do {
+        document.write("Loop counter: " + counter + "<br>");
+        counter++;
+    } while (counter <= myNum);
+</script>
+
+</body>
+</html>

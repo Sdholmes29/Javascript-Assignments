@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Array</title>
+</head>
+<body>
+
+<script>
+    // JavaScript code
+    let subjects = ["Accounting", "Algebra", "Programming", "Art", "Data Analytics"];
+
+    // Display the array values in a readable format using forEach
+    document.write("<p>Array values in readable format:</p>");
+    document.write("<ul>");
+    subjects.forEach(function(subject) {
+        document.write("<li>" + subject + "</li>");
+    });
+    document.write("</ul>");
+
+    // Display the array values separated by commas using one statement
+    document.write("<p>Array values separated by commas: " + subjects.join(", ") + "</p>");
+</script>
+
+</body>
+</html>
