@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+
+<meta chaset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title> Module 4 Assignment</title>
+
+<body>
+
+<script>
+    // JavaScript code
+
+    // Function to verify valid service quality
+    function isValidServiceQuality(quality) {
+        return ['great', 'ok', 'poor'].includes(quality.toLowerCase());
+    }
+
+    // Function to verify valid service amount
+    function isValidServiceAmount(amount) {
+        return !isNaN(amount) && amount >= 5.00 && amount <= 500.00;
+    }
+
+    // Function to calculate tip amount
+    function calculateTip(serviceAmount, serviceQuality) {
+        let tipPercentage;
+
+        switch (serviceQuality.toLowerCase()) {
+            case 'great':
+                tipPercentage = 0.20;
+                break;
+            case 'ok':
+                tipPercentage = 0.15;
+                break;
+            case 'poor':
+                tipPercentage = 0.10;
+                break;
+            default:
+                // This should not happen if isValidServiceQuality is used before calling calculateTip
+                return 0;
+        }
+
+        return serviceAmount * tipPercentage;
+    }
+
+    // Prompt user for service amount
+    let serviceAmount = prompt("Enter the dollar amount of the service:");
+    serviceAmount = parseFloat(serviceAmount);
+
+    // Verify valid service amount
+    if (!isValidServiceAmount(serviceAmount)) {
+        alert("Invalid service amount. Please enter a value between $5.00 and $500.00.");
+    } else {
+        // Prompt user for service quality
+        let serviceQuality = prompt("How was the service? (great, ok, poor)");
+
+        // Verify valid service quality
+        if (!isValidServiceQuality(serviceQuality)) {
+            alert("Invalid service quality. Please enter 'great', 'ok', or 'poor'.");
+        } else {
+            // Calculate tip and display the result
+            let tipAmount = calculateTip(serviceAmount, serviceQuality);
+            let totalAmount = serviceAmount + tipAmount;
+
+            alert("Service Amount: $" + serviceAmount.toFixed(2) + "\n" +
+                  "Recommended Tip: $" + tipAmount.toFixed(2) + "\n" +
+                  "Service Quality: " + serviceQuality + "\n" +
+                  "Total Amount (including tip): $" + totalAmount.toFixed(2));
+        }
+    }
+</script>
+
+</body>
+</html>
+	
