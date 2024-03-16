@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+
+<meta chaset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title> Module 5 Assignment</title>
+</head>
+
+
+<body>
+
+ <h1>Selected Dog Information</h1>
+    <p id="dogGreeting"></p>
+
+<script>
+
+function Dog(name, breed, color, gender, abilities, personality, mySound, canTalk) {
+    this.name = name;
+    this.breed = breed;
+    this.color = color;
+    this.gender = gender;
+    this.abilities = abilities;
+    this.personality = personality;
+    this.mySound = mySound;
+    this.canTalk = canTalk;
+    this.myGreeting = function() {
+        let greeting = `Hello, my name is ${this.name}. `;
+        if (this.canTalk) {
+            greeting += "I can talk!";
+        } else {
+            greeting += "I cannot talk";
+        }
+        console.log(greeting);
+    };
+}
+
+// Create two new dog objects
+let dog1 = new Dog("Scooby-Doo", "Great Dane", "Brown with black spots", "Male", ["Talking", "Solving mysteries"], "Cowardly, but loyal and friendly", "Ruh-roh! Raggy!", true);
+let dog2 = new Dog("Pluto", "Bloodhound", "Orange with black ears", "Male", ["Tracking", "Loyal"], "Loyal and friendly", "Woof woof!", false);
+
+// Call the myGreeting method for each dog
+dog1.myGreeting();
+dog2.myGreeting();
+
+let selectedDogName = prompt("Select a dog by typing in one of the dogs names (e.g., 'Scooby-Doo', 'Pluto'):");
+
+let selectedDog;
+
+// Find the selected dog object
+if (selectedDogName === dog1.name) {
+    selectedDog = dog1;
+} else if (selectedDogName === dog2.name) {
+    selectedDog = dog2;
+} else {
+    console.log("Error: The selected dog does not exist.");
+}
+
+// Display the selected dog's information
+if (selectedDog) {
+    console.log(`Information about ${selectedDog.name}:`);
+    for (let prop in selectedDog) {
+        console.log(`${prop}: ${selectedDog[prop]}`);
+    }
+}
+
+  // Define the Dog constructor and objects here...
+
+        // Display the selected dog's greeting message
+        let dogGreetingParagraph = document.getElementById("dogGreeting");
+        if (selectedDog) {
+            dogGreetingParagraph.textContent = selectedDog.myGreeting();
+        } else {
+            dogGreetingParagraph.textContent = "Error: The selected dog does not exist.";
+        }
+
+
+</script>
+</body>
+
+</html>
