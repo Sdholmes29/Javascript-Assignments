@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+
+<meta chaset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title> Module 5 Assignment</title>
+
+</head>
+
+<body>
+<script>
+
+let myDog = {
+    name: "Scooby-Doo",
+    breed: "Great Dane",
+    color: "Brown with black spots",
+    gender: "Male",
+    abilities: ["Talking", "Solving mysteries"],
+    personality: "Cowardly, but loyal and friendly",
+    mySound: "Ruh-roh! Raggy! I sound like a scaredy-cat, but I'll still stick by your side!"
+};
+
+console.log(`Meet ${myDog.name}, the ${myDog.color} ${myDog.breed}. He's a ${myDog.gender.toLowerCase()} dog with a personality that's ${myDog.personality.toLowerCase()}. He might say "${myDog.mySound}"`);
+
+function Dog(name, breed, color, gender, abilities, personality, mySound, canTalk) {
+    this.name = name;
+    this.breed = breed;
+    this.color = color;
+    this.gender = gender;
+    this.abilities = abilities;
+    this.personality = personality;
+    this.mySound = mySound;
+    this.canTalk = canTalk;
+    this.myGreeting = function() {
+        let greeting = `Hello, my name is ${this.name}, when I bark I am not scary. `;
+        greeting += `I starred in the TV show Scooby-Doo. My character was a ${this.breed}. `;
+        greeting += `I was the family dog in a cartoon about a group of friends that solve mysteries.`;
+        console.log(greeting);
+    };
+}
+
+let myDogConst = new Dog(
+    "Scooby-Doo",
+    "Great Dane",
+    "Brown with black spots",
+    "Male",
+    ["Talking", "Solving mysteries"],
+    "Cowardly, but loyal and friendly",
+    "Ruh-roh! Raggy!",
+    true
+);
+
+// Call the method to display the greeting
+myDogConst.myGreeting();
+
+
+
+</script>
+</body>
+
+</html>
